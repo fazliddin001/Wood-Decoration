@@ -1,0 +1,170 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+    <section class="service-area">
+        <div class="container">
+            <div class="row">
+                <h1 class="wow zoomIn" data-wow-delay=".3s">Our Service</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="our-service">
+        <div class="container">
+            <div class="Exclusive-service">
+                <div class="row">
+                    {% for service in services %}
+                        <div class="col-md-4">
+                            <div class="single-service wow fadeInUp" data-wow-delay=".5s">
+                                <span class="flaticon-paint ficon-bg-1"></span>
+                                <div class="icon-inner">
+                                    <span class="flaticon-paint"></span>
+                                </div>
+                                <div class="ss-content">
+                                    <h3>{{ service.title }}</h3>
+                                    <p>{{ service.short_description }}</p>
+                                    <a href="{% url 'main_app:service-detail' pk=service.id %}">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="video">
+        <div class="video-overly">
+            <div class="play-icon">
+                <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-play"></i></a>
+            </div>
+        </div>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="button ml-auto" id="pause-button" data-dismiss="modal"><i
+                                class="fas fa-times v-close"></i></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="headerPopup">
+
+                            <iframe id="video" src="https://www.youtube.com/embed/AASd5ewKNSw?enablejsapi=1&amp;html5=1"
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-snav-item">
+        <div class="container">
+            <div class="row">
+                {% for service in services %}
+                    <div class="col-md-4">
+                        <div class="single-service ss-2 wow fadeInUp" data-wow-delay="1s">
+                            <span class="flaticon-paint-1 ficon-bg-2"></span>
+                            <div class="icon-inner">
+                                <span class="flaticon-paint-1"></span>
+                            </div>
+                            <div class="ss-content">
+                                <h3>{{ service.title }}</h3>
+                                <p>{{ service.short_description }}</p>
+                                <a href="{% url 'main_app:service-detail' pk=service.id %}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <section class="project-ask-2" id="es-card">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card estimate-card">
+                        <span class="flaticon-paint esc-paint"></span>
+                        <h2>Get An Estimate</h2>
+                        <article class="card-body">
+                            <form method="post" action="{% url 'main_app:estimate' %}">
+                                {% csrf_token %}
+                                <span class="e-ctl"> 1. What are the wall dimensions?</span>
+                                <div class="form-row pt-2">
+                                    <div class="col form-group">
+                                        <label>Height (m) </label>
+                                        <input type="text" name="wd_height" class="form-control" placeholder="0.00"
+                                               id="wd-height" required>
+                                    </div>
+                                    <div class="col form-group">
+                                        <label>Width (m)</label>
+                                        <input type="text" name="wd_width" class="form-control" placeholder="0.00"
+                                               id="wd-width" required>
+                                    </div>
+                                </div>
+                                <span class="e-ctl">2. What are the dimensions of the windows/areas
+    that you don't want to cover in metres?</span>
+                                <div class="form-row pt-2">
+                                    <div class="form-group col">
+                                        <label>Height (m)</label>
+                                        <input type="text" name="wnd_height" class="form-control" placeholder="0.00"
+                                               id="wnd-height" value="00.00">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label>Width (m)</label>
+                                        <input type="text" name="wnd_width" class="form-control" placeholder="0.00"
+                                               id="wnd-width" value="00.00">
+                                    </div>
+                                </div>
+                                <span class="e-ctl">3. What are the dimensions of the doors
+    that you don't want to cover in metres?</span>
+                                <div class="form-row pt-2">
+                                    <div class="form-group col">
+                                        <label>Height (m)</label>
+                                        <input type="text" name="door_height" class="form-control" placeholder="0"
+                                               id="doord-height" value="00.00">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label>Width (m)</label>
+                                        <input type="text" name="door_width" class="form-control" placeholder="0"
+                                               id="doord-width" value="00.00">
+                                    </div>
+                                </div>
+                                <span class="e-ctl">4. How many coats of paint do you want?</span>
+                                <div class="form-group">
+                                    <button type="submit" class="btn-block ebtn" id="estimate-btn">Get Estimate Now
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn-block ebtn-r" id="estimate-reset-btn">Reset
+                                        Estimate
+                                    </button>
+                                </div>
+                            </form>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="hero-content-1">
+                        <h1 class="wow fadeInLeft" data-wow-delay=".5s">We Really Love to Help You to
+                            Get Your Home Decorated!</h1>
+                        <p class="wow fadeInLeft" data-wow-delay="1s">There no society ever discovered remotest corner
+                            the world
+                            that
+                            has not had something that would consider the arts songs.</p>
+                        <div class="btn-learn">
+                            <span class="learn-ab"><a href="{% url 'main_app:contact' %}">Contact Us</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

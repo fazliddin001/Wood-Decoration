@@ -1,0 +1,173 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal animated fadeIn" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content e-m-contents">
+<div class="modal-body">
+<button type="button" class="close es-close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="card estimate-card es-card-2">
+<span class="flaticon-paint esc-paint"></span>
+<h2>Get An Estimate</h2>
+<article class="card-body">
+<form>
+<span class="e-ctl"> 1. What are the wall dimensions?</span>
+<div class="form-row pt-2">
+<div class="col form-group">
+<label>Height (m) </label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-height" required>
+</div>
+<div class="col form-group">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-width" required>
+</div>
+</div>
+<span class="e-ctl">2. What are the dimensions of the windows/areas
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">3. What are the dimensions of the doors
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">4. How many coats of paint do you want?</span>
+<div class="form-group p-2">
+<label class="form-check form-check-inline">
+ <input class="form-check-input" type="radio" name="coat-qty-check" value="1" checked>
+<span class="form-check-label"> 1 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="2">
+<span class="form-check-label"> 2 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="3">
+<span class="form-check-label"> 3 coat</span>
+</label>
+</div>
+<div class="e-result">
+<div class="e-tottle me-tottle">
+<h3 id="litre-result">00.00</h3>
+<span>litres of paint</span>
+</div>
+<div class="er-text">
+<p>This is based on a coverage of
+<span id="mitresquireperlitre">12</span>m² per litre of paint. Always
+check the coverage on the side
+of the tin before buying.</p>
+</div>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn" id="estimate-btn">Get Estimate Now</button>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn-r" id="estimate-reset-btn">Reset Estimate</button>
+</div>
+</form>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="service-area ser-2">
+<div class="container">
+<div class="row">
+<h1 class="wow zoomIn" data-wow-delay=".5s">Wall Painting</h1>
+</div>
+</div>
+</section>
+
+
+<section class="wall-painting">
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<div class="painting wow fadeInLeft" data-wow-delay=".3s">
+<img src="{% static 'images/service/Service-Details1.png' %}" alt="">
+</div>
+</div>
+<div class="col-md-4">
+<div class="paint-about wow fadeInLeft" data-wow-delay="1s">
+<h1>{{ service.title }}</h1>
+<p>{{ service.short_description }}</p>
+<p>{{ service.first_long_description }}</p>
+</div>
+</div>
+</div>
+ </div>
+</section>
+
+<section class="wall-p-content">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="w-p-text">
+<p> {{ service.attention }}
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="well-painting-service">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="wps-text">
+<p>{{ service.second_long_description }}</p>
+</div>
+<div class="wp-services wow fadeInLeft" data-wow-delay=".3s">
+<h3>Wall Painting Services!</h3>
+<ul>
+{% for category in service.categories.all %}
+<li><a href="#">- {{ category.title }}</a></li>
+{% endfor %}
+</ul>
+</div>
+</div>
+<div class="col-md-6">
+<div class="p-serv-image">
+<img src="{% static 'images/service/Service-Details2.png' %}" alt="">
+<div class="psi-bg wow bounceInRight" data-wow-delay=".5s">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="project-ask">
+<div class="container">
+<div class="pro-ask-content">
+<h1 data-aos="slide-in-left">Do You Have Any Project?</h1>
+<p>I loved painting and drawing for many reasons. One of them was that all it really required was me, a
+pencil and a pad. It was something I was passionate about, and still am I loved painting.</p>
+<div class="btn-contact wow zoomIn" data-wow-delay=".5s">
+<span class="con-btn"><a href="{% url 'main_app:contact' %}">Let's Talk</a></span>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

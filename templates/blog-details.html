@@ -1,0 +1,203 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal animated fadeIn" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content e-m-contents">
+            <div class="modal-body">
+                <button type="button" class="close es-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="card estimate-card es-card-2">
+                    <span class="flaticon-paint esc-paint"></span>
+                    <h2>Get An Estimate</h2>
+                    <article class="card-body">
+                        <form action="{% url 'main_app:blog-comment' pk=blog.id %}" method="post">
+                            <span class="e-ctl"> 1. What are the wall dimensions?</span>
+                            <div class="form-row pt-2">
+                                <div class="col form-group">
+                                    <label>Height (m) </label>
+                                    <input type="text" class="form-control" placeholder="0.00" id="wd-height" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label>Width (m)</label>
+                                    <input type="text" class="form-control" placeholder="0.00" id="wd-width" required>
+                                </div>
+                            </div>
+                            <span class="e-ctl">2. What are the dimensions of the windows/areas
+that you don't want to cover in metres?</span>
+                            <div class="form-row pt-2">
+                                <div class="form-group col">
+                                    <label>Height (m)</label>
+                                    <input type="text" class="form-control" placeholder="0.00" id="wnd-height"
+                                           value="00.00">
+                                </div>
+                                <div class="form-group col">
+                                    <label>Width (m)</label>
+                                    <input type="text" class="form-control" placeholder="0.00" id="wnd-width"
+                                           value="00.00">
+                                </div>
+                            </div>
+                            <span class="e-ctl">3. What are the dimensions of the doors
+that you don't want to cover in metres?</span>
+                            <div class="form-row pt-2">
+                                <div class="form-group col">
+                                    <label>Height (m)</label>
+                                    <input type="text" class="form-control" placeholder="0" id="doord-height"
+                                           value="00.00">
+                                </div>
+                                <div class="form-group col">
+                                    <label>Width (m)</label>
+                                    <input type="text" class="form-control" placeholder="0" id="doord-width"
+                                           value="00.00">
+                                </div>
+                            </div>
+                            <span class="e-ctl">4. How many coats of paint do you want?</span>
+                            <div class="form-group p-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="coat-qty-check" value="1"
+                                           checked>
+                                    <span class="form-check-label"> 1 coat</span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="coat-qty-check" value="2">
+                                    <span class="form-check-label"> 2 coat</span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="coat-qty-check" value="3">
+                                    <span class="form-check-label"> 3 coat</span>
+                                </label>
+                            </div>
+                            <div class="e-result">
+                                <div class="e-tottle me-tottle">
+                                    <h3 id="litre-result">00.00</h3>
+                                    <span>litres of paint</span>
+                                </div>
+                                <div class="er-text">
+                                    <p>This is based on a coverage of
+                                        <span id="mitresquireperlitre">12</span>m² per litre of paint. Always
+                                        check the coverage on the side
+                                        of the tin before buying.</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn-block ebtn" id="estimate-btn">Get Estimate Now</button>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn-block ebtn-r" id="estimate-reset-btn">Reset Estimate
+                                </button>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="service-area">
+    <div class="container">
+        <div class="row">
+            <h1 class="wow zoomIn" data-wow-delay=".5s">Our Blog Details</h1>
+        </div>
+    </div>
+</section>
+
+
+<section class="blog-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 offset-lg-2">
+                <div class="blog-content">
+                    <h1>{{ blog.title }}</h1>
+                    <div class="blg-meta">
+                        <ul>
+                            <li>Posted: {{ blog.updated_at }}</li>
+                            <li>Tag: {% for tag in blog.tags.all %}
+                                {{ tag.title }},
+                                {% endfor %}
+                            </li>
+                        </ul>
+                    </div>
+                    <p>{{ blog.short_description }}
+                    </p>
+                    <p>{{ blog.long_description }}</p>
+                    <div class="w-p-text bd-t-2">
+                        <p>{{ blog.attention }}</p>
+                    </div>
+                    {% for description in blog.descriptions.all %}
+                    <p>{{ description.title }}</p>
+                    {% endfor %}
+                </div>
+                <hr>
+                <div class="s-activities">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h4>Share:</h4>
+                            <ul class="share-icon">
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-7">
+                            <ul class="blg-teg">
+                                <li><i class="fas fa-tags"></i></li>
+                                {% for tag in blog.tags.all %}
+                                <li><a href="#"> {{ tag.title }}},</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <form method="post" action="{% url 'main_app:blog-comment' pk=blog.id %}?next={{ request.path }}"
+                      class="client-coment">
+                    {% csrf_token %}
+                    <h2>Leave a reply</h2>
+                    <hr>
+                    <div class="comment-box">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <input type="text" class="form-control cb-input" name="fullname" placeholder="Name">
+                                <input type="text" class="form-control cb-input" name="email" placeholder="Email">
+                                <input type="text" class="form-control cb-input" name="website_url"
+                                       placeholder="Website URL">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="cc-submit">
+                                    <textarea rows="6" class="form-control cb-input" name="comment"
+                                              placeholder="Comment"></textarea>
+                                    <button type="submit" class="ccs-btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <h2>Comments</h2>
+                <hr>
+                {% for feedback in comments %}
+                <div class="single-comment">
+                    <div class="sc-image">
+                        <img src="{% static 'images/cclient.png' %}" alt="">
+                    </div>
+                    <div class="sc-head">
+                        <h2>{{ feedback.fullname }}</h2>
+                        <p>{{ feedback.created_at }}</p>
+                    </div>
+                    <div class="sc-details">
+                        <p>“{{ feedback.comment }}”</p>
+                        <div class="sc-reply">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+

@@ -1,0 +1,67 @@
+{% load static %}
+
+<header class="header-area">
+    <div class="container">
+        <div class="paint-nav">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{% url 'main_app:home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav hp-1-nav ml-auto mt-2">
+                        <li class="nav-item  dropdown">
+                            <a class="nav-link" id="dropdown1" data-toggle="dropdown">Home</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
+                                <li class="dropdown-item"><a href="{% url 'main_app:home' %}">Home</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  dropdown">
+                            <a class="nav-link" id="dropdown2" data-toggle="dropdown">Service</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
+                                <li class="dropdown-item"><a href="{% url 'main_app:service' %}">Service</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  dropdown">
+                            <a class="nav-link" id="dropdown3" data-toggle="dropdown">About</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
+                                <li class="dropdown-item"><a href="{% url 'main_app:about' %}">About Us</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  dropdown">
+                            <a class="nav-link" id="dropdown4" data-toggle="dropdown">Contact</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
+                                <li class="dropdown-item"><a href="{% url 'main_app:contact' %}">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="dropdown5" data-toggle="dropdown">Page</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                                <li class="dropdown-item dropdown">
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown1-1"></ul>
+                                </li>
+                                <li class="dropdown-item"><a href="{% url 'main_app:team' %}">Team</a></li>
+                                <li class="dropdown-item"><a href="{% url 'main_app:blog' %}">Blog</a></li>
+                                <li class="dropdown-item dropdown"><a>Blog Details</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
+                                        <li class="dropdown-item"><a href="{% url 'main_app:blog-detail' pk=1 %}">Blog
+                                            Detail</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="{% url 'main_app:blog' %}">Blog</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mest" data-toggle="modal" data-target="">Estimate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link last-child" href="tel:+4487788589(99)">Call : +44 8778 8589 (99)</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,322 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal animated fadeIn" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content e-m-contents">
+<div class="modal-body">
+<button type="button" class="close es-close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="card estimate-card es-card-2">
+<span class="flaticon-paint esc-paint"></span>
+<h2>Get An Estimate</h2>
+<article class="card-body">
+<form>
+<span class="e-ctl"> 1. What are the wall dimensions?</span>
+<div class="form-row pt-2">
+<div class="col form-group">
+<label>Height (m) </label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-height" required>
+</div>
+<div class="col form-group">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-width" required>
+</div>
+</div>
+<span class="e-ctl">2. What are the dimensions of the windows/areas
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">3. What are the dimensions of the doors
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">4. How many coats of paint do you want?</span>
+<div class="form-group p-2">
+<label class="form-check form-check-inline">
+ <input class="form-check-input" type="radio" name="coat-qty-check" value="1" checked>
+<span class="form-check-label"> 1 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="2">
+<span class="form-check-label"> 2 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="3">
+<span class="form-check-label"> 3 coat</span>
+</label>
+</div>
+<div class="e-result">
+<div class="e-tottle me-tottle">
+<h3 id="litre-result">00.00</h3>
+<span>litres of paint</span>
+</div>
+<div class="er-text">
+<p>This is based on a coverage of
+<span id="mitresquireperlitre">12</span>m² per litre of paint. Always
+check the coverage on the side
+of the tin before buying.</p>
+</div>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn" id="estimate-btn">Get Estimate Now</button>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn-r" id="estimate-reset-btn">Reset Estimate</button>
+</div>
+</form>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="service-area">
+<div class="container">
+<div class="row">
+<h1 class="wow zoomIn" data-wow-delay=".5s">Our Team</h1>
+</div>
+</div>
+</section>
+
+
+<section class="our-team ot-2">
+<div class="container">
+<div class="os-content">
+<p>Our Team</p>
+<h2>Meet The Team</h2>
+<p>Whereas digital stuff is a bit more ethereal. I like the trophy on my
+shelf, the presence in my home nice book is just as valuable..</p>
+</div>
+<div class="row">
+<div class="col-md-4 wow fadeInUp" data-wow-delay=".5s">
+<div class="st-member">
+<img src="{% static 'images/team-members/member1.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Robison Croso</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">CEO & Founder</p>
+</div>
+<div class="col-md-4 wow fadeInUp" data-wow-delay="1s">
+<div class="st-member">
+<img src="{% static 'images/team-members/member2.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Nila Amensta</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">CO Founder</p>
+</div>
+<div class="col-md-4 wow fadeInUp" data-wow-delay="1.5s">
+<div class="st-member">
+<img src="{% static 'images/team-members/member3.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Mohin Megun</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">Director Of Paint</p>
+</div>
+<div class="col-md-4 wow fadeInUp" data-wow-delay=".5s">
+<div class="st-member">
+<img src="{% static 'images/team-members/member4.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">William Marcy</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">Manager</p>
+</div>
+<div class="col-md-4 wow fadeInUp" data-wow-delay="1s">
+<div class="st-member">
+<img src="{% static 'images/team-members/member5.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Manasa Viklo</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">Color Experts</p>
+</div>
+<div class="col-md-4 wow fadeInUp" data-wow-delay="1.5s">
+<div class="st-member">
+<img src="{% static 'images/team-members/member6.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Washington Booker</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">Marketing Manager</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="our-team pt-5">
+<div class="container">
+<div class="os-content">
+<p>Our Team</p>
+<h2>Meet The Team</h2>
+<p>Whereas digital stuff is a bit more ethereal. I like the trophy on my
+shelf, the presence in my home nice book is just as valuable..</p>
+</div>
+<div class="row">
+<div class="col-md-4 wow fadeInUp text-center" data-wow-delay=".5s">
+<div class="st-member ot-member">
+<img src="{% static 'images/team-members/member1.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Robison Croso</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">CEO & Founder</p>
+</div>
+<div class="col-md-4 wow fadeInUp text-center" data-wow-delay="1s">
+<div class="st-member ot-member">
+<img src="{% static 'images/team-members/member2.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Nila Amensta</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">CO Founder</p>
+</div>
+<div class="col-md-4 wow fadeInUp text-center" data-wow-delay="1.5s">
+<div class="st-member ot-member">
+<img src="{% static 'images/team-members/member3.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Mohin Megun</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">Director Of Paint</p>
+</div>
+<div class="col-md-4 wow fadeInUp text-center" data-wow-delay=".5s">
+<div class="st-member ot-member">
+<img src="{% static 'images/team-members/member4.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">William Marcy</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">Manager</p>
+</div>
+<div class="col-md-4 wow fadeInUp text-center" data-wow-delay="1s">
+<div class="st-member ot-member">
+<img src="{% static 'images/team-members/member5.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Manasa Viklo</h3>
+<p class="wow fadeInDown" data-wow-delay="1s">Color Experts</p>
+</div>
+<div class="col-md-4 wow fadeInUp text-center" data-wow-delay="1.5s">
+<div class="st-member ot-member">
+<img src="{% static 'images/team-members/member6.jpg' %}" alt="">
+<div class="st-s-icon">
+<ul>
+<li><a href="#"><i class="fab fa-twitter sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-google-plus-g sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-facebook-f sicon sticon"></i></a></li>
+<li><a href="#"><i class="fab fa-pinterest-p sicon sticon"></i></a></li>
+</ul>
+</div>
+</div>
+<h3 class="wow fadeInDown" data-wow-delay="1s">Washington Booker</h3>
+<p class="wow fadeInDown" data-wow-delay="1.5s">Marketing Manager</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="project-ask">
+<div class="container">
+<div class="pro-ask-content">
+<h1 data-aos="slide-in-left">Do You Have Any Project?</h1>
+<p>I loved painting and drawing for many reasons. One of them was that all it really required was me, a
+pencil and a pad. It was something I was passionate about, and still am I loved painting.</p>
+<div class="btn-contact wow zoomIn" data-wow-delay=".5s">
+<span class="con-btn"><a href="{% url 'main_app:contact' %}">Let's Talk</a></span>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

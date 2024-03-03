@@ -1,0 +1,159 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal animated fadeIn" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content e-m-contents">
+<div class="modal-body">
+<button type="button" class="close es-close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="card estimate-card es-card-2">
+<span class="flaticon-paint esc-paint"></span>
+<h2>Get An Estimate</h2>
+<article class="card-body">
+<form>
+<span class="e-ctl"> 1. What are the wall dimensions?</span>
+<div class="form-row pt-2">
+<div class="col form-group">
+<label>Height (m) </label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-height" required>
+</div>
+<div class="col form-group">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-width" required>
+</div>
+</div>
+<span class="e-ctl">2. What are the dimensions of the windows/areas
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">3. What are the dimensions of the doors
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">4. How many coats of paint do you want?</span>
+<div class="form-group p-2">
+<label class="form-check form-check-inline">
+ <input class="form-check-input" type="radio" name="coat-qty-check" value="1" checked>
+<span class="form-check-label"> 1 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="2">
+<span class="form-check-label"> 2 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="3">
+<span class="form-check-label"> 3 coat</span>
+</label>
+</div>
+<div class="e-result">
+<div class="e-tottle me-tottle">
+<h3 id="litre-result">00.00</h3>
+<span>litres of paint</span>
+</div>
+<div class="er-text">
+<p>This is based on a coverage of
+<span id="mitresquireperlitre">12</span>m² per litre of paint. Always
+check the coverage on the side
+of the tin before buying.</p>
+</div>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn" id="estimate-btn">Get Estimate Now</button>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn-r" id="estimate-reset-btn">Reset Estimate</button>
+</div>
+</form>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="service-area">
+<div class="container">
+<div class="row">
+<h1 class="wow zoomIn" data-wow-delay=".5s">Our Blog</h1>
+</div>
+</div>
+</section>
+
+
+<section class="blog">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-12">
+<div class="blog-sidebar blg-sli-2">
+<div class="search-box">
+<form method="get" action="{% url 'main_app:search-blog' %}" style="display: flex; justify-content: center; flex-direction: column; align-items: end">
+{% csrf_token %}
+<input type="text" placeholder="Search" name="s" value="{{ item }}">
+<button type="submit" style="background-color: orange; padding: 5px">Submit</button>
+</form>
+</div>
+<div class="sidebar-widget post-categories-wrapper">
+<h4 class="sidebar-box-title">Post Categories</h4>
+<ul class="category-list">
+{% for category in categories %}
+<li><a href="{% url 'main_app:search-blog' %}?cat={{ category.title }}">{{ category.title }}</a><span class="cl-count"></span></li>
+{% endfor %}
+</ul>
+</div>
+<div class="sidebar-widget popular-tag-wrapper">
+<h4 class="sidebar-box-title"> Tag</h4>
+<ul class="sidebar-tag-list">
+{% for tag in tags %}
+<li class="fli"><a href="{% url 'main_app:search-blog' %}?tag={{ tag.title }}">{{ tag.title }}</a></li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-8 col-md-12">
+<div class="row">
+{% for blog in blogs %}
+<div class="col-md-6">
+<div class="blog-one wow fadeInUp" data-wow-delay=".5s">
+<div class="bo-hover-content">
+<span class="flaticon-art-1 ficon-blg"></span>
+</div>
+<h3>{{ blog.title }}</h3>
+<div class="blg-meta">
+<ul>
+ <li>Posted: {{ blog.updated_at }}</li>
+<li>Tag: {% for tag in blog.tags.all %} {{ tag.title }},{% endfor %}</li>
+</ul>
+</div>
+<p>{{ blog.short_description }}</p>
+<div class="btn-learn-2">
+<span class="learn-li"><a href="{% url 'main_app:blog-detail' pk=blog.id %}">Learn More</a></span>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

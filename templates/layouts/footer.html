@@ -1,0 +1,86 @@
+{% load static %}
+<section class="footer-nav">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <form class="subscribe-top" action="{% url 'main_app:subscribe' %}" method="post">
+    {% csrf_token %}
+    <div class="sp-logo">
+    <img src="{% static 'images/logo.png' %}" alt="">
+    </div>
+    <div class="sp-subscription-form">
+    <div class="sp-input">
+    <h4>Subscribe Us Now:</h4>
+    <div class="input-group">
+    <input type="email" class="form-control sp-in" name="email_address" placeholder="Enter Your Email Address" onfocus="this.placeholder=''" onblur="this.placeholder='Enter Your Email Address'" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+    <button type="submit" style="background-color: orange; border: 1px solid orange; border-radius: 0 5px 5px 0;" class="input-group-text" id="basic-addon2">Subscribe</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    <div class="footer-content">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="about-company">
+    <h4>About Company</h4>
+    <p>Let us together create the new building of the future
+    which will be everything in one form: architecture
+    and sculpture and painting. The greatest advances
+    of civilization, whether in architecture.</p>
+    <p>Painting or painting, science literature, in industry or
+    agriculture, have never come from.</p>
+    </div>
+    </div>
+    <div class="col-md-2">
+    <div class="about-company">
+    <h4>Services</h4>
+    <ul class="single-footer-widget">
+    <li><a href="#">Wall Painting</a></li>
+    <li><a href="#">Normal Painting</a> </li>
+    <li><a href="#">House Painting</a></li>
+    <li><a href="#">Commercial Painting</a></li>
+    <li><a href="#">Painting Butck</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-2">
+    <div class="about-company">
+    <h4>Company</h4>
+    <ul class="single-footer-widget">
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Affiliates</a></li>
+    <li><a href="#">Careers</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="about-company">
+    <h4>Follow Us:</h4>
+    <div class="social-icon">
+    <ul class="sicon-frist">
+    <li><a href="#"><i class="fab fa-twitter sicon"></i></a></li>
+    <li><a href="#"><i class="fab fa-google-plus-g sicon"></i></a></li>
+    <li><a href="#"><i class="fab fa-facebook-f sicon"></i></a></li>
+    <li><a href="#"><i class="fab fa-pinterest-p sicon"></i></a></li>
+    <li><a href="#"><i class="fab fa-linkedin-in sicon"></i></a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <footer>
+    <p><a href="https://www.templateshub.net" target="_blank">Templates Hub</a></p>
+    </footer>
+    
+    

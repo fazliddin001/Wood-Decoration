@@ -1,0 +1,189 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal animated fadeIn" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content e-m-contents">
+<div class="modal-body">
+<button type="button" class="close es-close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="card estimate-card es-card-2">
+<span class="flaticon-paint esc-paint"></span>
+<h2>Get An Estimate</h2>
+<article class="card-body">
+<form>
+<span class="e-ctl"> 1. What are the wall dimensions?</span>
+<div class="form-row pt-2">
+<div class="col form-group">
+<label>Height (m) </label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-height" required>
+</div>
+<div class="col form-group">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-width" required>
+</div>
+</div>
+<span class="e-ctl">2. What are the dimensions of the windows/areas
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">3. What are the dimensions of the doors
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">4. How many coats of paint do you want?</span>
+<div class="form-group p-2">
+<label class="form-check form-check-inline">
+ <input class="form-check-input" type="radio" name="coat-qty-check" value="1" checked>
+<span class="form-check-label"> 1 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="2">
+<span class="form-check-label"> 2 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="3">
+<span class="form-check-label"> 3 coat</span>
+</label>
+</div>
+<div class="e-result">
+<div class="e-tottle me-tottle">
+<h3 id="litre-result">00.00</h3>
+<span>litres of paint</span>
+</div>
+<div class="er-text">
+<p>This is based on a coverage of
+<span id="mitresquireperlitre">12</span>m² per litre of paint. Always
+check the coverage on the side
+of the tin before buying.</p>
+</div>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn" id="estimate-btn">Get Estimate Now</button>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn-r" id="estimate-reset-btn">Reset Estimate</button>
+</div>
+</form>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="service-area">
+<div class="container">
+<div class="row">
+<h1 class="wow zoomIn" data-wow-delay=".5s">Our Portfolio</h1>
+</div>
+</div>
+</section>
+
+
+<section class="portfolio-details">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="portfolio-details">
+<img src="{% static 'images/portfolio/Portfolio-Details-1.png' %}" alt="">
+</div>
+<div class="single-portfolio">
+<img src="{% static 'images/portfolio/Portfolio-Details-2.png' %}" alt="">
+</div>
+</div>
+<div class="col-md-6">
+<div class="portfolio-details">
+<img src="{% static 'images/portfolio/Portfolio-Details-3.png' %}" alt="">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-9">
+<div class="pd-content">
+<h3>Design is not just what it looks like and feels like design how works.</h3>
+<p>We experience happiness as a series of pleasing moments. They come and go like cloud
+unpredictable fleeting and
+out responsibility to our desires. Through honest self-work, reflection, and meditation
+these moments together,
+a web-like design of happiness that drapes We experience happiness as a series of pleasing
+moments.</p>
+<p>Experience happiness as a series of pleasing moments. They come and go cloud unpredictable
+fleeting and with
+responsibility to our desires. Through honest self-work, reflection, and meditation these
+moments together.</p>
+</div>
+<div class="page-change">
+<div class="pre-portfolio">
+<a href="#">
+<div class="pre-icon">
+<span class="flaticon-left-arrow"></span>
+</div>
+<div class="pre-meta">
+<h4>Previous Portfolio</h4>
+<p>Full paint design for Unimo</p>
+</div>
+</a>
+</div>
+<div class="next-portfolio">
+<a href="#">
+<div class="next-meta">
+<h4>Next Portfolio</h4>
+<p>New Paint Research for Fian</p>
+</div>
+<div class="next-icon">
+<span class="flaticon-right-arrow"></span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="pdp-meta">
+<ul class="pdp-m-list">
+<li>Client: Templates Hub</li>
+<li>Project: Nifila Decor</li>
+<li>Started: 23th May, 2019</li>
+<li>Finished: 29th June, 2019</li>
+</ul>
+</div>
+<div class="pdp-m-review">
+<h3>5 Star Rated</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="project-ask">
+<div class="container">
+<div class="pro-ask-content">
+<h1 data-aos="slide-in-left">Do You Have Any Project?</h1>
+<p>I loved painting and drawing for many reasons. One of them was that all it really required was me, a
+pencil and a pad. It was something I was passionate about, and still am I loved painting.</p>
+<div class="btn-contact wow zoomIn" data-wow-delay=".5s">
+<span class="con-btn"><a href="{% url 'main_app:contact' %}">Let's Talk</a></span>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

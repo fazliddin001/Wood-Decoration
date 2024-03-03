@@ -1,0 +1,202 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal animated fadeIn" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content e-m-contents">
+<div class="modal-body">
+<button type="button" class="close es-close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="card estimate-card es-card-2">
+<span class="flaticon-paint esc-paint"></span>
+<h2>Get An Estimate</h2>
+<article class="card-body">
+<form>
+<span class="e-ctl"> 1. What are the wall dimensions?</span>
+<div class="form-row pt-2">
+<div class="col form-group">
+<label>Height (m) </label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-height" required>
+</div>
+<div class="col form-group">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wd-width" required>
+</div>
+</div>
+<span class="e-ctl">2. What are the dimensions of the windows/areas
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0.00" id="wnd-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">3. What are the dimensions of the doors
+that you don't want to cover in metres?</span>
+<div class="form-row pt-2">
+<div class="form-group col">
+<label>Height (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-height" value="00.00">
+</div>
+<div class="form-group col">
+<label>Width (m)</label>
+<input type="text" class="form-control" placeholder="0" id="doord-width" value="00.00">
+</div>
+</div>
+<span class="e-ctl">4. How many coats of paint do you want?</span>
+<div class="form-group p-2">
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="1" checked>
+<span class="form-check-label"> 1 coat</span>
+</label>
+ <label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="2">
+<span class="form-check-label"> 2 coat</span>
+</label>
+<label class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="coat-qty-check" value="3">
+<span class="form-check-label"> 3 coat</span>
+</label>
+</div>
+<div class="e-result">
+<div class="e-tottle me-tottle">
+<h3 id="litre-result">00.00</h3>
+<span>litres of paint</span>
+</div>
+<div class="er-text">
+<p>This is based on a coverage of
+<span id="mitresquireperlitre">12</span>m² per litre of paint. Always
+check the coverage on the side
+of the tin before buying.</p>
+</div>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn" id="estimate-btn">Get Estimate Now</button>
+</div>
+<div class="form-group">
+<button type="button" class="btn-block ebtn-r" id="estimate-reset-btn">Reset Estimate</button>
+</div>
+</form>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="service-area">
+<div class="container">
+<div class="row">
+<h1 class="wow zoomIn" data-wow-delay=".5s">Our Portfolio</h1>
+</div>
+</div>
+</section>
+
+
+<section class="our-portfolio">
+<div class="container">
+<div class="row">
+<div class="col-md-8 offset-md-2">
+<div class="p-catagory">
+<ul>
+<li id='all'>All</li>
+<li id='design'>Design</li>
+<li id='photography'>Photography</li>
+<li id='ui-design'>Ui Design</li>
+<li id='ux-design'>UX Design</li>
+<li id='branding'>Branding</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row my-shuffle-container">
+<div class="col-md-4 single-portfolio" data-groups='["design"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-01.jpg' %}">
+<span class="flaticon-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-2.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["photography"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-02-2.jpg' %}">
+ <span class="flaticon-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-02.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["ui-design"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-03-3.jpg' %}">
+<span class="flaticon-focus long-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-03.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["branding"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-04-4.jpg' %}">
+<span class="flaticon-focus long-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-04.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["design"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-05-5.jpg' %}">
+<span class="flaticon-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-05.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["ux-design"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-07-7.jpg' %}">
+<span class="flaticon-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-07.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["ui-design"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-06-6.jpg' %}">
+<span class="flaticon-focus long-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-06.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["ux-design"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-09-9.jpg' %}">
+<span class="flaticon-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-09.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-4 single-portfolio" data-groups='["photography"]'>
+<div class="aspect__inner">
+<a data-fancybox="gallery" href="{% static 'images/portfolio/Portfolio-08-8.jpg' %}">
+<span class="flaticon-focus"></span></a>
+<img src="{% static 'images/portfolio/Portfolio-08.jpg' %}" alt="" />
+</div>
+</div>
+<div class="col-md-1 my-sizer-elementac"></div>
+</div>
+</div>
+</section>
+
+
+<section class="project-ask">
+<div class="container">
+<div class="pro-ask-content">
+<h1 data-aos="slide-in-left">Do You Have Any Project?</h1>
+<p>I loved painting and drawing for many reasons. One of them was that all it really required was me, a
+pencil and a pad. It was something I was passionate about, and still am I loved painting.</p>
+<div class="btn-contact wow zoomIn" data-wow-delay=".5s">
+<span class="con-btn"><a href="{% url 'main_app:contact' %}">Let's Talk</a></span>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}
